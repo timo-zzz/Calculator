@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UI implements ActionListener {
+public class UI extends JFrame implements ActionListener{
     private JButton button1 = new JButton("1");
     private JButton button2 = new JButton("2");
     private JButton button3 = new JButton("3");
@@ -13,22 +13,65 @@ public class UI implements ActionListener {
     private JButton button7 = new JButton("7");
     private JButton button8 = new JButton("8");
     private JButton button9 = new JButton("9");
+    private JButton addition = new JButton("+");
+    private JButton subtraction = new JButton("-");
+    private JButton multiplication = new JButton("x");
+    private JButton division = new JButton("/");
     private String labelText = "";
 
 
-    public UI() {
-        JPanel panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder(300, 200, 300, 200));
-        panel.setLayout(new GridLayout(0, 1));
+    UI() {
+        // Configure frame
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(null);
+        this.setSize(350, 475);
+        this.setVisible(true);
+        this.setTitle("Calculator");
+        this.setResizable(false);
 
-        JFrame frame = new JFrame();
-        frame.add(panel, BorderLayout.CENTER);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Calculator");
-        frame.pack();
-        frame.setVisible(true);
-        setVisible(button1, button2, button3, button4, button5, button6, button7, button8, button9);
-        addActionListeners(button1, button2, button3, button4, button5, button6, button7, button8, button9);
+        // Add buttons
+        addActionListeners(button1, button2, button3, button4, button5, button6, button7, button8, button9, addition, subtraction, multiplication, division);
+
+        button1.setBounds(5, 140, 65, 40);
+        this.add(button1);
+        button1.setFocusable(false);
+        button2.setBounds(80, 140, 65, 40);
+        button2.setFocusable(false);
+        this.add(button2);
+        button3.setBounds(155, 140, 65, 40);
+        button3.setFocusable(false);
+        this.add(button3);
+        button4.setBounds(5, 210, 65, 40);
+        this.add(button4);
+        button4.setFocusable(false);
+        button5.setBounds(80, 210, 65, 40);
+        button5.setFocusable(false);
+        this.add(button5);
+        button6.setBounds(155, 210, 65, 40);
+        button6.setFocusable(false);
+        this.add(button6);
+        button7.setBounds(5, 280, 65, 40);
+        this.add(button7);
+        button7.setFocusable(false);
+        button8.setBounds(80, 280, 65, 40);
+        button8.setFocusable(false);
+        this.add(button8);
+        button9.setBounds(155, 280, 65, 40);
+        button9.setFocusable(false);
+        this.add(button9);
+
+        addition.setBounds(260, 140, 65, 40);
+        addition.setFocusable(false);
+        this.add(addition);
+        subtraction.setBounds(260, 210, 65, 40);
+        subtraction.setFocusable(false);
+        this.add(subtraction);
+        multiplication.setBounds(260, 280, 65, 40);
+        multiplication.setFocusable(false);
+        this.add(multiplication);
+        division.setBounds(260, 350, 65, 40);
+        division.setFocusable(false);
+        this.add(division);
     }
 
     public void addActionListeners(JButton... buttons) {
