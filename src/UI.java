@@ -93,10 +93,44 @@ public class UI extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       /*switch (e.getSource()) {
-            case button1:
-
-
-        }*/
+       if (e.getSource() == button1) {
+           labelText += "1";
+       }
+       else if (e.getSource() == button2) {
+           labelText += "2";
+       }
+       else if (e.getSource() == button3) {
+           labelText += "3";
+       }
+       else if (e.getSource() == button4) {
+           labelText += "4";
+       }
+       else if (e.getSource() == button5) {
+           labelText += "5";
+       }
+       else if (e.getSource() == button6) {
+           labelText += "6";
+       }
+       else if (e.getSource() == button7) {
+           labelText += "7";
+       }
+       else if (e.getSource() == button8) {
+           labelText += "2";
+       }
+       else if (e.getSource() == button9) {
+           labelText += "2";
+       }
+       else if (e.getSource() == addition) {
+           labelText += "+";
+       }
+       else if (e.getSource() == subtraction) {
+           labelText += "-";
+       }
+       else if (e.getSource() == multiplication) {
+           labelText += "x";
+       }
+       else {
+           labelText += "/";
+       }
     }
 }
