@@ -17,7 +17,10 @@ public class UI extends JFrame implements ActionListener{
     private JButton subtraction = new JButton("-");
     private JButton multiplication = new JButton("x");
     private JButton division = new JButton("/");
+    private JButton enter = new JButton("ENTER");
     private String labelText = "";
+    private String equation = "";
+    private JLabel text = new JLabel(labelText);
 
 
     UI() {
@@ -30,7 +33,7 @@ public class UI extends JFrame implements ActionListener{
         this.setResizable(false);
 
         // Add buttons
-        addActionListeners(button1, button2, button3, button4, button5, button6, button7, button8, button9, addition, subtraction, multiplication, division);
+        addActionListeners(button1, button2, button3, button4, button5, button6, button7, button8, button9, addition, subtraction, multiplication, division, enter);
 
         button1.setBounds(5, 140, 65, 40);
         this.add(button1);
@@ -72,6 +75,19 @@ public class UI extends JFrame implements ActionListener{
         division.setBounds(260, 350, 65, 40);
         division.setFocusable(false);
         this.add(division);
+
+        enter.setBounds(5, 350, 215, 40);
+        enter.setFocusable(false);
+        this.add(enter);
+
+        // Add & configure label
+        text.setHorizontalTextPosition(JLabel.LEFT);
+        text.setFont(new Font("Arial", Font.PLAIN, 30));
+        text.setBackground(Color.LIGHT_GRAY);
+        text.setVerticalAlignment(JLabel.CENTER);
+        text.setOpaque(true);
+        text.setBounds(10, 20, 315, 80);
+        this.add(text);
     }
 
     public void addActionListeners(JButton... buttons) {
@@ -86,51 +102,55 @@ public class UI extends JFrame implements ActionListener{
         }
     }
 
-    public String getLabelText() {
-        return labelText;
+    public String getEquation() {
+        return equation;
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
        if (e.getSource() == button1) {
-           labelText += "1";
+           text.setText(labelText += 1);
        }
        else if (e.getSource() == button2) {
-           labelText += "2";
+           text.setText(labelText += 2);
        }
        else if (e.getSource() == button3) {
-           labelText += "3";
+           text.setText(labelText += 3);
        }
        else if (e.getSource() == button4) {
-           labelText += "4";
+           text.setText(labelText += 4);
        }
        else if (e.getSource() == button5) {
-           labelText += "5";
+           text.setText(labelText += 5);
        }
        else if (e.getSource() == button6) {
-           labelText += "6";
+           text.setText(labelText += 6);
        }
        else if (e.getSource() == button7) {
-           labelText += "7";
+           text.setText(labelText += 7);
        }
        else if (e.getSource() == button8) {
-           labelText += "2";
+           text.setText(labelText += 8);
        }
        else if (e.getSource() == button9) {
-           labelText += "2";
+           text.setText(labelText += 9);
        }
        else if (e.getSource() == addition) {
-           labelText += "+";
+           text.setText(labelText += "+");
        }
        else if (e.getSource() == subtraction) {
-           labelText += "-";
+           text.setText(labelText += "-");
        }
        else if (e.getSource() == multiplication) {
-           labelText += "x";
+           text.setText(labelText += "x");
+       }
+       else if (e.getSource() == division) {
+           text.setText(labelText += "/");
        }
        else {
-           labelText += "/";
+           equation = labelText;
+           text.setText(labelText = "");
        }
     }
 }
